@@ -153,6 +153,7 @@ address a {
 @media screen and (max-height: 450px) {
 	main {
 		font-size: 60%;
+		height: auto;
 	}
 	.control button {
 		font-size: 100%;
