@@ -42,7 +42,18 @@ html, body {
 	left: 0; 
 	top: 0;
 	font-family: 'Montserrat', sans-serif; 
-	color: var(--col-dark); 
+	color:#215d38; 
+}
+
+body {
+	background: linear-gradient(rgba(233, 238, 232, 0.85), rgba(233, 238, 232, 0.85)) , url(https://upload.wikimedia.org/wikipedia/commons/4/4d/Usdollar100front.jpg) center center;
+	background-size: cover;
+
+		
+}
+
+h1 {
+	font-weight: 700;
 }
 
 
@@ -52,7 +63,7 @@ header {
 	display:flex;
 	align-items: center;
 	justify-content: flex-start;
-	background-color: #2d3436;
+	background-color: #215d38;
 	height: 10vh;
 	padding: 1rem;
 	color: var(--col-light);
@@ -63,12 +74,12 @@ header {
 	font-weight: 900 !important;
 }
 
-#quiz-score {
-	margin-left: auto;
+.score {
+	margin-left: 2rem;
 }
 
-#quiz-state {
-	margin-left: 2rem;
+.state {
+	margin-left: auto;
 }
 
 /* Main Styles
@@ -80,6 +91,7 @@ main {
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
+	text-align: center;
 }
 
 main h1, h2, h3 {
@@ -94,12 +106,22 @@ legend {
 	justify-content: center;
 }
 
+.choice-button {
+	width: 100%;
+}
+
+form {
+	
+}
+
 p {
 	text-align: center;
 }
 
 .control {
 	margin-bottom: 2rem;
+	display: flex;
+	justify-content: center;
 }
 
 input[type=radio] {
@@ -128,7 +150,7 @@ button {
 	padding: 1rem 2rem;
 	color: white;
 	text-decoration: none;
-	background: #636e72;
+	background: #ec1c2d;
 	border: 0px !important;
 	transition: all 0.4s ease 0s;
 	border-radius: 5px;
@@ -158,6 +180,7 @@ footer {
 	color: var(--col-light);
 	align-items: center;
 	font-size: smaller;
+	background-color: #215d38;
 }
 
 address img {
