@@ -150,6 +150,18 @@ address a {
 	text-decoration: none;
 }
 
+@media screen and (max-height: 450px) {
+	main {
+		font-size: 60%;
+	}
+	.control button {
+		font-size: 100%;
+	}
+	.control {
+		margin-bottom: 1rem;
+	}
+}
+
 
 
 

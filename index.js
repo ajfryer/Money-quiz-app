@@ -46,9 +46,9 @@ const scoreContainer = $('.score')
 const stateContainer = $('.state')
 const formContainer = $('form')
 
-$(attachDelegatedEventHandler)
+$(attachEventHandlers)
 
-function attachDelegatedEventHandler() {
+function attachEventHandlers() {
   formContainer.on('click','.start-button, .next-button, .restart-button', function(e) {
     e.preventDefault();
     renderQuestion();
@@ -68,10 +68,7 @@ function renderQuestion() {
   stateContainer.text(`Question: ${QUIZ.state+1}/${QUIZ.questions.length}`)
   formContainer.html(
     `
-    <fieldset>
-      <legend>
-        <h1><strong>${QUIZ.questions[QUIZ.state].question}</strong></h1>
-      </legend>
+      <h1><strong>${QUIZ.questions[QUIZ.state].question}</strong></h1>
       <div class="control">
         <button class="choice-button">${QUIZ.questions[QUIZ.state].choices[0]}</button>
       </div>
@@ -84,7 +81,6 @@ function renderQuestion() {
       <div class="control">
         <button class="choice-button">${QUIZ.questions[QUIZ.state].choices[3]}</button>
       </div>
-    </fieldset>
     `
   )
 }
@@ -98,18 +94,14 @@ function renderAnswer(e) {
   if (isCorrect) {
     QUIZ.score++
   }
-  
+
   scoreContainer.text(`Score: ${QUIZ.score}`)
   formContainer.html(
     `
-    <fieldset>
-      <legend>
-        <h1><strong>${isCorrect?'Correct!':'Incorrect.'}</strong></h1>
-        <h2><strong>${isCorrect?'':`Correct Answer: ${QUIZ.questions[QUIZ.state].answer}`}</strong></h2>
-      </legend>
+      <h1><strong>${isCorrect?'Correct!':'Incorrect.'}</strong></h1>
+      <h2><strong>${isCorrect?'':`Correct Answer: ${QUIZ.questions[QUIZ.state].answer}`}</strong></h2>
       <div class="control"> 
       </div>
-    </fieldset>
     `
   );
   if(QUIZ.state === QUIZ.questions.length-1) {
@@ -122,18 +114,14 @@ function renderAnswer(e) {
 }
 
 function renderOutro () {
-  stateContainer.text(`State: ${QUIZ.state}/${QUIZ.questions.length}`)
+  stateContainer.text(`Question: ${QUIZ.state}/${QUIZ.questions.length}`)
   formContainer.html(
     `
-    <fieldset>
-      <legend>
-        <h1><strong>Congratulations!</strong></h1>
-        <h2><strong>You got ${QUIZ.score} out of ${QUIZ.questions.length}</strong></h2>
-      </legend>
-      <div class="control">
+    <h1><strong>Congratulations!</strong></h1>
+    <h2><strong>You got ${QUIZ.score} out of ${QUIZ.questions.length}</strong></h2>
+    <div class="control">
       <button class="restart-button">Restart Quiz</button> 
-      </div>
-    </fieldset>
+    </div>
     `
   )
   QUIZ.score = 0;
