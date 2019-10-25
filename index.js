@@ -1,10 +1,11 @@
 'use strict'
+
 const QUIZ = {
   state: 0,
   score: 0,
   questions: [
     {
-      question: "When you turn 65, how many times your annual income do you need to have in savings to retire comfortably?",
+      question: "When you turn 65, how many times your annual income do you need in savings to retire comfortably?",
       choices: ["4 times income", "7 times income", "12 times income", "15 times income"],
       answer: "12 times income"
     },
@@ -38,47 +39,34 @@ const QUIZ = {
       choices: ["60% stocks, 40% bonds", "50% stocks, 50% bonds", "80% stocks, 20% bonds", "20% stocks, 80% bonds"],
       answer: "50% stocks, 50% bonds"
     }
-  ],
-  checkAnswer: function(userAnswer) {
-    return this.questions[this.state].answer === userAnswer;
-  },
+  ]
 }
 
-const scoreContent = $('.score')
-const stateContent = $('.state')
-const formContent = $('form')
+const scoreContainer = $('.score')
+const stateContainer = $('.state')
+const formContainer = $('form')
 
-$(function() {
-  attachEventHandlers();
-})
+$(attachDelegatedEventHandler)
 
-function attachEventHandlers() {
-  formContent.on('click','.start-button', function(e) {
+function attachDelegatedEventHandler() {
+  formContainer.on('click','.start-button, .next-button, .restart-button', function(e) {
     e.preventDefault();
     renderQuestion();
   })
-  formContent.on('click','.choice-button', function(e) {
+  formContainer.on('click','.choice-button', function(e) {
     e.preventDefault();
     renderAnswer(e); 
   })
-  formContent.on('click', '.next-button', function(e) {
-    e.preventDefault();
-    renderQuestion();
-  })
-  formContent.on('click', '.end-button', function(e) {
+  formContainer.on('click', '.end-button', function(e) {
     e.preventDefault();
     renderOutro();
-  })
-  formContent.on('click', '.restart-button', function(e) {
-    e.preventDefault();
-    renderQuestion();
   })
 }
 
 function renderQuestion() {
-  scoreContent.text(`Score: ${QUIZ.score}/${QUIZ.questions.length}`)
-  stateContent.text(`State: ${QUIZ.state}/${QUIZ.questions.length}`)
-  formContent.html(
+  scoreContainer.text(`Score: ${QUIZ.score}`)
+  stateContainer.text(`Question: ${QUIZ.state+1}/${QUIZ.questions.length}`)
+  formContainer.html(
     `
     <fieldset>
       <legend>
@@ -105,13 +93,14 @@ function renderAnswer(e) {
 
   let button = e.target;
   let userAnswer = e.target.textContent; //What is wrong here????
-  
   const isCorrect = QUIZ.questions[QUIZ.state].answer === userAnswer;
+
   if (isCorrect) {
     QUIZ.score++
   }
-  scoreContent.text(`Score: ${QUIZ.score}/${QUIZ.questions.length}`)
-  formContent.html(
+  
+  scoreContainer.text(`Score: ${QUIZ.score}`)
+  formContainer.html(
     `
     <fieldset>
       <legend>
@@ -124,17 +113,17 @@ function renderAnswer(e) {
     `
   );
   if(QUIZ.state === QUIZ.questions.length-1) {
-    formContent.find('.control').html(`<button class="end-button">End Quiz</button>`)
+    formContainer.find('.control').html(`<button class="end-button">End Quiz</button>`)
   }
   else {
-    formContent.find('.control').html(`<button class="next-button">Next Question</button>`)
+    formContainer.find('.control').html(`<button class="next-button">Next Question</button>`)
   }
   QUIZ.state++;
 }
 
 function renderOutro () {
-  stateContent.text(`State: ${QUIZ.state}/${QUIZ.questions.length}`)
-  formContent.html(
+  stateContainer.text(`State: ${QUIZ.state}/${QUIZ.questions.length}`)
+  formContainer.html(
     `
     <fieldset>
       <legend>

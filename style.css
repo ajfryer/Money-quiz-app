@@ -3,35 +3,19 @@
 */
 
 
-/* Root Variables
-––––––––––––––––––––––––––––––––––––––––––––––––––*/
-:root {
-	--col-primary: #0984e3;
-	--col-secondary: #dfe6e9;
-	--col-tertiary: #ff7675;
-	--col-dark: #2d3436;
-	--col-light: white;
-	--col-warning: #ffeaa7;
-}
-
-
 /* Responsive Typography and Layout
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/*
-	Based on Chad Ostrowski's implementation here:
-	https://bits.theorem.co/css-pro-tips-responsive-font-sizes-and-when-to-use-which-units/
-*/
 * {
 	box-sizing: border-box;
 }
 
 html { 
-	/*font-size: calc(.5em + 1vw);*/
 	font-size: calc( 10px + (24 - 10) * (100vw - 320px) / (2560 - 320) );
 }
 
 button, input { 
-	font-size: inherit; 
+	font-size: inherit;
+	font-family: inherit; 
 }
 
 html, body { 
@@ -47,13 +31,7 @@ html, body {
 
 body {
 	background: linear-gradient(rgba(233, 238, 232, 0.85), rgba(233, 238, 232, 0.85)) , url(https://upload.wikimedia.org/wikipedia/commons/4/4d/Usdollar100front.jpg) center center;
-	background-size: cover;
-
-		
-}
-
-h1 {
-	font-weight: 700;
+	background-size: cover;	
 }
 
 
@@ -66,12 +44,17 @@ header {
 	background-color: #215d38;
 	height: 10vh;
 	padding: 1rem;
-	color: var(--col-light);
+	color: #e9eee8;
 }
 
-#logo {
-	margin-bottom: 1rem;
+.logo {
+	margin: 0;
 	font-weight: 900 !important;
+}
+
+.logo a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .score {
@@ -81,6 +64,7 @@ header {
 .state {
 	margin-left: auto;
 }
+
 
 /* Main Styles
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
@@ -100,22 +84,8 @@ main h1, h2, h3 {
 	font-weight: 700;
 }
 
-legend {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
 .choice-button {
 	width: 100%;
-}
-
-form {
-	
-}
-
-p {
-	text-align: center;
 }
 
 .control {
@@ -124,31 +94,14 @@ p {
 	justify-content: center;
 }
 
-input[type=radio] {
-	margin-top: -1px;
-  vertical-align: middle;
-	float: left;;
-}
-
-input[type="radio"]:checked+label {
-	background-color: #b2bec3;
-	}
-
 fieldset {
 	border: 0px;
-}
-
-label  {
-	font-size: 1.25rem;
-	font-weight: 400;
-	margin-left: 30px;
-	display: block;
 }
 
 button {
 	width: 100%;
 	padding: 1rem 2rem;
-	color: white;
+	color: #e9eee8;
 	text-decoration: none;
 	background: #ec1c2d;
 	border: 0px !important;
@@ -163,11 +116,12 @@ button {
 }
 
 button:hover {
-	color: var(--col-light) !important;
-	background: #2d3436;
+	color: #e9eee8 !important;
+	background: #215d38;
 	transition: all 0.4s ease 0s;
 	cursor: pointer;
 }
+
 
 /* Footer Styles
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
@@ -176,8 +130,7 @@ footer {
 	justify-content: space-between;
 	padding: 1rem;
 	height: 10vh;
-	background-color: #2d3436;
-	color: var(--col-light);
+	color: #e9eee8;
 	align-items: center;
 	font-size: smaller;
 	background-color: #215d38;
@@ -192,7 +145,7 @@ address img {
 }
 
 address a {
-	color: var(--col-light);
+	color: #e9eee8;
 	vertical-align:top;
 	text-decoration: none;
 }
