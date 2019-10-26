@@ -32,6 +32,7 @@ html, body {
 body {
 	background: linear-gradient(rgba(233, 238, 232, 0.85), rgba(233, 238, 232, 0.85)) , url(usdollar100.jpg) center center;
 	background-size: cover;	
+	background-repeat: no-repeat;
 }
 
 
@@ -69,7 +70,7 @@ header {
 /* Main Styles
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 main {
-	min-height: 250px;
+	min-height: 260px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
