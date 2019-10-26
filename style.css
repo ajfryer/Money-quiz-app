@@ -144,6 +144,10 @@ footer {
 	background-color: #215d38;
 }
 
+footer h4 {
+	margin: 0;
+}
+
 address img {
 	width: 100%;
   max-width: calc(1rem);
