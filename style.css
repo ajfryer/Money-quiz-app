@@ -32,7 +32,8 @@ html, body {
 body {
 	height: 100vh;
 	max-height: -moz-available;          /* WebKit-based browsers will ignore this. */
-	max-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+	max-height: -webkit-fill-available;
+	min-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
 	max-height: fill-available;
 }
 
